@@ -5,13 +5,14 @@ try:
     dist_name = __name__
     __version__ = version(dist_name)
 except PackageNotFoundError:  # pragma: no cover
-    __version__ = "unknown"
+    __version__ = "0.0.1"
 finally:
     del version, PackageNotFoundError
 
-from .base import Configuration, MimeTypes, SteamshipError
-from .data import *
+try:
+    from .base import Configuration, MimeTypes, SteamshipError
+    from .data import *
 
-from .client import Steamship  # isort:skip
-
-__all__ = ["Steamship", "Configuration", "SteamshipError", "MimeTypes", "File", "Block", "Tag"]
+    from .client import Steamship  # isort:skip
+except ModuleNotFoundError:
+    pass

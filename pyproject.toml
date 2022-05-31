@@ -1,20 +1,24 @@
 [build-system]
-# AVOID CHANGING REQUIRES: IT WILL BE UPDATED BY PYSCAFFOLD!
-requires = ["setuptools>=46.1.0", "setuptools_scm[toml]>=5", "wheel"]
-build-backend = "setuptools.build_meta"
-
-[tool.setuptools_scm]
-# See configuration details in https://github.com/pypa/setuptools_scm
-version_scheme = "no-guess-dev"
+requires = ["flit_core >=3.6,<4"]
+build-backend = "flit_core.buildapi"
 
 [project]
-name = "steamship"
-description = "TEST"
+name = "Steamship"
+description = "Steamship is a database that helps developers get work done with natural language content."
+authors = [
+    {name = "Steamship Team", email = "contact@steamship.com"},
+]
+requires-python = ">=3.8"
 dependencies = [
     "requests==2.27.1",
     "pydantic==1.9.0",
     "aiohttp==3.8.1",
     "inflection==0.5.1"
+]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python"
 ]
 dynamic = ["version"]
 
@@ -61,3 +65,5 @@ junit_family = "xunit2"
 testpaths = "tests"
 python_functions = "test_*"
 minversion = 7.0
+
+
